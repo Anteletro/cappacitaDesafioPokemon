@@ -39,9 +39,11 @@ function deletarPokemon(id) {
     return pokemonDeletado
 }
 function deletarTudo() {
+    if (pokemons.length != 0) {
     sequence._id = 1
     pokemons.splice(1,(pokemons.length - 1))
     return pokemons
+    }
 }
 
 function batalhaPokemon(id1, id2) {
@@ -53,7 +55,7 @@ function batalhaPokemon(id1, id2) {
     const pokemon1 = pokemons[id1]
     const pokemon2 = pokemons[id2]
 
-    if(pokemon1.hp > 0 && pokemon2.hp > 0){
+    if(pokemon1.hp != 0 && pokemon2.hp != 0){
         if(pokemon1.tipo == pokemon2.fraqueza) {
             pokemon2.hp = pokemon2.hp - superEfetivo
         } else if(pokemon1.tipo == pokemon2.resistencia) {
@@ -63,7 +65,7 @@ function batalhaPokemon(id1, id2) {
         }
     }
 
-    if(pokemon1.hp > 0 && pokemon2.hp > 0){
+    if(pokemon1.hp != 0 && pokemon2.hp != 0){
         if(pokemon2.tipo == pokemon1.fraqueza) {
             pokemon1.hp = pokemon1.hp - superEfetivo
         } else if(pokemon2.tipo == pokemon1.resistencia) {
